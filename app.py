@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 import pytz
+from PIL import Image
 
 # Konfigurasi halaman
 st.set_page_config(
@@ -22,6 +23,7 @@ menu = st.sidebar.radio(
 
 st.sidebar.markdown("---")
 st.sidebar.info("Dibuat dengan ❤️ menggunakan Python & Streamlit")
+
 st.sidebar.markdown("---")
 st.sidebar.markdown("### 📱 Scan Website")
 st.sidebar.image("WebbQR.png", caption="Buka di HP", width=150)
@@ -214,7 +216,7 @@ elif menu == "📞 Kontak":
     # Info tambahan
     st.markdown("---")
     st.caption("📌 Respons cepat dalam 1x24 jam")
-
+Tambah QR code dan fix footer
 # Footer
 st.markdown("---")
 st.markdown(
