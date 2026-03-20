@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import datetime
+import pytz
 
 # Konfigurasi halaman
 st.set_page_config(
@@ -22,6 +23,10 @@ menu = st.sidebar.radio(
 st.sidebar.markdown("---")
 st.sidebar.info("Dibuat dengan ❤️ menggunakan Python & Streamlit")
 
+# Set zona WIB
+wib = pytz.timezone('Asia/Jakarta')
+waktu_wib = datetime.datetime.now(wib)
+
 # ========== HALAMAN BERANDA ==========
 if menu == "🏠 Beranda":
     # Header dengan animasi
@@ -40,33 +45,21 @@ if menu == "🏠 Beranda":
     """, unsafe_allow_html=True)
     
     st.markdown('<p class="big-font">🚀 WELCOME TO MY WEBSITE</p>', unsafe_allow_html=True)
-
-# Set zona WIB
-    wib = pytz.timezone('Asia/Jakarta')
-    waktu_wib = datetime.datetime.now(wib)
     
     # Kolom-kolom
     col1, col2, col3 = st.columns(3)
     
     with col1:
         st.header("📅 Hari Ini")
-    	# Set zona waktu WIB
-    	wib = pytz.timezone('Asia/Jakarta')
-    	waktu_wib = datetime.datetime.now(wib)
-    	hari = waktu_wib.strftime("%A, %d %B %Y")
-    	st.info(hari)
-        
-        if st.button("🎉 Klik buat hadiah"):
+        hari = waktu_wib.strftime("%A, %d %B %Y")
+        st.info(hari)
+        if st.button("🎈 Klik Hadiah"):
             st.balloons()
-            st.success("Kamu dapat hadiah! 🎁")
     
     with col2:
         st.header("⏰ Jam WIB")
-    	wib = pytz.timezone('Asia/Jakarta')
-    	waktu_wib = datetime.datetime.now(wib)
-    	jam = waktu_wib.strftime("%H:%M:%S")
-    	st.warning(jam)
-        
+        jam = waktu_wib.strftime("%H:%M:%S")
+        st.warning(jam)
         if st.button("❄️ Klik buat salju"):
             st.snow()
     
@@ -107,7 +100,7 @@ elif menu == "📝 Tentang Saya":
     
     # Progress bar
     st.subheader("📊 Progress Belajar")
-    progress = 0.65  # 65%
+    progress = 0.65
     st.progress(progress)
     st.write(f"Udah {progress*100:.0f}%... semangat terus! 💪")
     
@@ -195,7 +188,7 @@ elif menu == "📞 Kontak":
         st.success("📞 **+62 813 390 522 31**")
         
         # Tombol chat WhatsApp (bisa langsung klik)
-        wa_link = "https://wa.me/+6281339052231"  # Ganti dengan nomormu
+        wa_link = "https://wa.me/6281339052231"
         st.markdown(f"[💬 Klik untuk Chat WhatsApp]({wa_link})")
     
     # Form pesan (opsional)
@@ -218,7 +211,6 @@ elif menu == "📞 Kontak":
     # Info tambahan
     st.markdown("---")
     st.caption("📌 Respons cepat dalam 1x24 jam")
-
 
 # Footer
 st.markdown("---")
