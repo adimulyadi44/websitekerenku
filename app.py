@@ -40,23 +40,32 @@ if menu == "🏠 Beranda":
     """, unsafe_allow_html=True)
     
     st.markdown('<p class="big-font">🚀 WELCOME TO MY WEBSITE</p>', unsafe_allow_html=True)
+
+# Set zona WIB
+    wib = pytz.timezone('Asia/Jakarta')
+    waktu_wib = datetime.datetime.now(wib)
     
     # Kolom-kolom
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown("### 📅 Hari Ini")
-        hari_ini = datetime.datetime.now().strftime("%A, %d %B %Y")
-        st.info(hari_ini)
+        st.header("📅 Hari Ini")
+    	# Set zona waktu WIB
+    	wib = pytz.timezone('Asia/Jakarta')
+    	waktu_wib = datetime.datetime.now(wib)
+    	hari = waktu_wib.strftime("%A, %d %B %Y")
+    	st.info(hari)
         
         if st.button("🎉 Klik buat hadiah"):
             st.balloons()
             st.success("Kamu dapat hadiah! 🎁")
     
     with col2:
-        st.markdown("### ⏰ Jam")
-        jam_sekarang = datetime.datetime.now().strftime("%H:%M:%S")
-        st.warning(jam_sekarang)
+        st.header("⏰ Jam WIB")
+    	wib = pytz.timezone('Asia/Jakarta')
+    	waktu_wib = datetime.datetime.now(wib)
+    	jam = waktu_wib.strftime("%H:%M:%S")
+    	st.warning(jam)
         
         if st.button("❄️ Klik buat salju"):
             st.snow()
