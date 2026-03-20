@@ -166,38 +166,50 @@ elif menu == "🛠️ Project":
             st.snow()
 
 # ========== HALAMAN KONTAK ==========
-else:  # menu == "📞 Kontak"
+elif menu == "📞 Kontak":
     st.title("📞 Hubungi Saya")
+    
+    # Buat 2 kolom
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("### 📧 Email")
+        st.info("📩 **adimulyadi1980@gmail.com**")
+        
+        # Tombol copy email (simulasi)
+        if st.button("📋 Copy Email"):
+            st.success("Email berhasil di-copy!")
+            st.balloons()
+    
+    with col2:
+        st.markdown("### 📱 WhatsApp")
+        st.success("📞 **+62 813 390 522 31**")
+        
+        # Tombol chat WhatsApp (bisa langsung klik)
+        wa_link = "https://wa.me/+6281339052231"  # Ganti dengan nomormu
+        st.markdown(f"[💬 Klik untuk Chat WhatsApp]({wa_link})")
+    
+    # Form pesan (opsional)
+    st.markdown("---")
+    st.markdown("### ✉️ Kirim Pesan Langsung")
     
     with st.form("contact_form"):
         nama = st.text_input("Nama Lengkap")
-        email = st.text_input("Email")
+        email = st.text_input("Email Kamu")
         pesan = st.text_area("Pesan")
         
-        submitted = st.form_submit_button("Kirim Pesan")
-        
+        submitted = st.form_submit_button("📨 Kirim Pesan")
         if submitted:
             if nama and email and pesan:
-                st.success(f"Terima kasih {nama}! Pesanmu sudah terkirim. ✉️")
+                st.success("✅ Pesan demo terkirim! (Ini hanya simulasi)")
                 st.balloons()
             else:
-                st.error("Mohon isi semua field!")
+                st.error("❌ Mohon isi semua field!")
     
-    # Info kontak
+    # Info tambahan
     st.markdown("---")
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        st.markdown("📧 **Email**")
-        st.write("saya@email.com")
-    
-    with col2:
-        st.markdown("📱 **WhatsApp**")
-        st.write("+62 812-3456-7890")
-    
-    with col3:
-        st.markdown("🐍 **Python**")
-        st.write("Version 3.x")
+    st.caption("📌 Respons cepat dalam 1x24 jam")
+
 
 # Footer
 st.markdown("---")
