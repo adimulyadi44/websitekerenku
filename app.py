@@ -22,6 +22,9 @@ menu = st.sidebar.radio(
 
 st.sidebar.markdown("---")
 st.sidebar.info("Dibuat dengan ❤️ menggunakan Python & Streamlit")
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 📱 Scan Website")
+st.sidebar.image("WebbQR.png", caption="Buka di HP", width=150)
 
 # Set zona WIB
 wib = pytz.timezone('Asia/Jakarta')
