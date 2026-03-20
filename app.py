@@ -216,7 +216,7 @@ elif menu == "📞 Kontak":
     # Info tambahan
     st.markdown("---")
     st.caption("📌 Respons cepat dalam 1x24 jam")
-Tambah QR code dan fix footer
+
 # Footer
 st.markdown("---")
 st.markdown(
