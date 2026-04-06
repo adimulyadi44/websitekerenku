@@ -1,4 +1,3 @@
-# app.py - Website Multi-Halaman Pertamaku
 import streamlit as st
 import pandas as pd
 import datetime
